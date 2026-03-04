@@ -1,5 +1,5 @@
 ;; ============================================================
-;; Multi-Armed Bandit with Thompson Sampling (Safe PeTTa)
+;; Multi-Armed Bandit with Thompson Sampling (PeTTa)
 ;; Proper numeric termination
 ;; ============================================================
 
@@ -73,7 +73,7 @@
 (= (upd D 0 ($s1 $s2 $s3 (D $a $b)))
     ($s1 $s2 $s3 (D $a (+ $b 1))))
 
-;; ---------- Safe Simulation Loop --------------------------------
+;; ----------  Simulation Loop --------------------------------
 (= (sim-loop $round $state)
     (if (> $round 30)
         (println! (list "Final state:" $state))
@@ -87,5 +87,5 @@
             (sim-loop $next $new-state))))
 
 ;; ---------- Run Experiment --------------------------------------
-!(println! "=== Thompson Sampling (Safe Version) ===")
+!(println! "=== Thompson Sampling  ===")
 !(sim-loop 1 (init))
